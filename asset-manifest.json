@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/R6SRando/static/css/main.2cce8147.chunk.css",
-    "main.js": "/R6SRando/static/js/main.21025d62.chunk.js",
-    "main.js.map": "/R6SRando/static/js/main.21025d62.chunk.js.map",
+    "main.js": "/R6SRando/static/js/main.8255fa23.chunk.js",
+    "main.js.map": "/R6SRando/static/js/main.8255fa23.chunk.js.map",
     "runtime~main.js": "/R6SRando/static/js/runtime~main.638b2cfb.js",
     "runtime~main.js.map": "/R6SRando/static/js/runtime~main.638b2cfb.js.map",
     "static/js/2.d042e1ad.chunk.js": "/R6SRando/static/js/2.d042e1ad.chunk.js",
     "static/js/2.d042e1ad.chunk.js.map": "/R6SRando/static/js/2.d042e1ad.chunk.js.map",
     "index.html": "/R6SRando/index.html",
-    "precache-manifest.b77020090a875a2ca8fd2e0b548d72fe.js": "/R6SRando/precache-manifest.b77020090a875a2ca8fd2e0b548d72fe.js",
+    "precache-manifest.313a7ae53bb6487bab926f4342944704.js": "/R6SRando/precache-manifest.313a7ae53bb6487bab926f4342944704.js",
     "service-worker.js": "/R6SRando/service-worker.js",
     "static/css/main.2cce8147.chunk.css.map": "/R6SRando/static/css/main.2cce8147.chunk.css.map"
   }
