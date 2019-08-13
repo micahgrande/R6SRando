@@ -2,7 +2,7 @@
   "name": "r6srando",
   "version": "0.1.0",
   "private": true,
-  "homepade": "https://micahgrande.github.io/R6SRando",
+  "homepage": "https://micahgrande.github.io/R6SRando",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.8.6",
