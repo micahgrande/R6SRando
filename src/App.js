@@ -24,9 +24,9 @@ const Electric = [9, 21]
 const AttackFast = [2, 9, 12, 13, 20]
 const AttackMedium = [0, 1, 3, 4, 6, 8, 10, 11, 14, 15, 16, 17, 18, 19, 21, 23]
 const AttackHeavy = [5, 7, 22]
-const DefendFast = [3, 8, 9]
-const DefendMedium = [0, 1, 2, 6]
-const DefendHeavy = [4, 5, 7]
+const DefendFast = [3, 8, 9, 12, 16, 17, 19]
+const DefendMedium = [0, 1, 2, 6, 10, 11, 15, 22]
+const DefendHeavy = [4, 5, 7, 13, 14, 18, 20, 21, 23]
 
   const AttackStyle = {
     fontSize: "20px",
@@ -230,7 +230,7 @@ function R6SRando() {
           }
         }
         const DefendMediumToggle = () => {
-          const button = document.getElementById("DefendHeavyButton")
+          const button = document.getElementById("DefendMediumButton")
           if (button.value === "OFF"){
             DefendMedium.forEach(function(element){
               DefendNumber[element]++
@@ -247,7 +247,7 @@ function R6SRando() {
           }
         }
         const DefendFastToggle = () => {
-          const button = document.getElementById("DefendHeavyButton")
+          const button = document.getElementById("DefendFastButton")
           if (button.value === "OFF"){
             DefendFast.forEach(function(element){
               DefendNumber[element]++
