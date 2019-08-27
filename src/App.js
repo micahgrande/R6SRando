@@ -28,6 +28,13 @@ const DefendFast = [3, 8, 9, 12, 16, 17, 19]
 const DefendMedium = [0, 1, 2, 6, 10, 11, 15, 22]
 const DefendHeavy = [4, 5, 7, 13, 14, 18, 20, 21, 23]
 
+let exclude = 0
+let high = 0
+let utilityCount = 0
+let utilityFlag = 0
+let speedCount = 0
+let speedFlag = 0
+
   const AttackStyle = {
     fontSize: "20px",
     backgroundColor: "#E2A2FE",
@@ -57,13 +64,31 @@ const DefendHeavy = [4, 5, 7, 13, 14, 18, 20, 21, 23]
     backgroundColor: "#727A87",
     padding: "15px",
     color: "#9DA9B1",
-    borderRadius: "12px",
+    borderRadius: "20px",
     margin: "10px"
   }
 
 function R6SRando() {
   
   let [Op, setOp] = useState("? ? ?") //variable shown as the name of who you're playing
+
+  const AllOptionsToggle = () => {
+    const button = document.getElementById("AllOptionsButton")
+          if (button.value === "OFF"){
+            exclude = 1
+            utilityToggle(button)
+          }
+          else {
+            exclude = 0
+            utilityToggle(button)
+          }
+  }
+  const RecruitRoulette = () => {
+    const button = document.getElementById("RecruitRoulette")
+  }
+  const TrueRecruitRoulette = () => {
+    const button = document.getElementById("TRUERecruitRoulette")
+  }
 
   //extra settings connected to similarly named buttons
         const SoftBreachToggle = () => {
@@ -73,14 +98,14 @@ function R6SRando() {
               AttackNumber[element]++
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
           else {
             SoftBreach.forEach(function(element){
               AttackNumber[element]--
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
         }
 
@@ -91,14 +116,14 @@ function R6SRando() {
               AttackNumber[element]++
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
           else {
             HardBreach.forEach(function(element){
               AttackNumber[element]--
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
         }
 
@@ -113,7 +138,7 @@ function R6SRando() {
             })
             console.log("Attack: " + AttackNumber)
             console.log("Defend: "+ DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
           else {
             ShieldAttack.forEach(function(element){
@@ -124,7 +149,7 @@ function R6SRando() {
             })
             console.log("Attack: "+AttackNumber)
             console.log("Defend: "+ DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
         }
         const CameraToggle = () => {
@@ -134,14 +159,14 @@ function R6SRando() {
               DefendNumber[element]++
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
           else {
             Camera.forEach(function(element){
               DefendNumber[element]--
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
         }
         const ElectricToggle = () => {
@@ -151,14 +176,15 @@ function R6SRando() {
               DefendNumber[element]++
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
+            
           }
           else {
             Electric.forEach(function(element){
               DefendNumber[element]--
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            utilityToggle(button)
           }
         }
         const AttackHeavyToggle = () => {
@@ -168,14 +194,14 @@ function R6SRando() {
               AttackNumber[element]++
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             AttackHeavy.forEach(function(element){
               AttackNumber[element]--
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
         const AttackMediumToggle = () => {
@@ -185,14 +211,14 @@ function R6SRando() {
               AttackNumber[element]++
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             AttackMedium.forEach(function(element){
               AttackNumber[element]--
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
         const AttackFastToggle = () => {
@@ -202,14 +228,14 @@ function R6SRando() {
               AttackNumber[element]++
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             AttackFast.forEach(function(element){
               AttackNumber[element]--
             })
             console.log("Attack: " + AttackNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
         const DefendHeavyToggle = () => {
@@ -219,14 +245,14 @@ function R6SRando() {
               DefendNumber[element]++
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             DefendHeavy.forEach(function(element){
               DefendNumber[element]--
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
         const DefendMediumToggle = () => {
@@ -236,14 +262,14 @@ function R6SRando() {
               DefendNumber[element]++
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             DefendMedium.forEach(function(element){
               DefendNumber[element]--
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
         const DefendFastToggle = () => {
@@ -253,21 +279,29 @@ function R6SRando() {
               DefendNumber[element]++
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
           else {
             DefendFast.forEach(function(element){
               DefendNumber[element]--
             })
             console.log("Defend: " + DefendNumber)
-            buttontoggle(button)
+            speedToggle(button)
           }
         }
 
   const DoExtraAttack = () => { //called when ATTACK with extra settings button is pressed
     for (var i = 0; i < AttackNumber.length; i++){
       console.log(AttackNumber[i])
-      if(AttackNumber[i] > 1) {
+      high = 0
+      if (exclude === 1){
+        high--
+        if (utilityFlag === 1)
+          high++
+        if (speedFlag === 1)
+          high++
+      }
+      if(AttackNumber[i] > high) {
         AttackQueue.push(Attackers[i])
       }
     }
@@ -281,7 +315,15 @@ function R6SRando() {
   const DoExtraDefend = () => { //called when DEFEND with extra settings button is pressed
     for (var i = 0; i < DefendNumber.length; i++){
       console.log(DefendNumber[i])
-      if(DefendNumber[i] !== 0) { //
+      high = 0
+      if (exclude === 1){
+        high--
+        if (utilityFlag === 1)
+          high++
+        if (speedFlag === 1)
+          high++
+      }
+      if(DefendNumber[i] > high) {
         DefendQueue.push(Defenders[i])
       }
     }
@@ -293,28 +335,62 @@ function R6SRando() {
     DefendQueue = []
   }
 
-  const buttontoggle = (button) => { //Gray or color
+  const speedToggle = (button) => { //Gray or color
     if (button.value === "OFF"){
       button.value= "ON"
       button.style.backgroundColor = "#A2C5FE"
       button.style.color = "#e7e7e7"
+      speedCount++
     }
     else {
       button.value = "OFF"
       button.style.backgroundColor = "#727A87"
       button.style.color = "#9DA9B1"
+      speedCount--
     }
+    if (speedCount === 0)
+      speedFlag = 0
+    else
+      speedFlag = 1
+  }
+  const utilityToggle = (button) => { //Gray or color
+    if (button.value === "OFF"){
+      button.value= "ON"
+      button.style.backgroundColor = "#A2C5FE"
+      button.style.color = "#e7e7e7"
+      utilityCount++
+    }
+    else {
+      button.value = "OFF"
+      button.style.backgroundColor = "#727A87"
+      button.style.color = "#9DA9B1"
+      utilityCount--
+    }
+    if (utilityCount === 0)
+      utilityFlag = 0
+    else
+      utilityFlag = 1
   }
 
-  // const testfunction = () => {  //linked to test button
-  //   console.log(AttackNumber)
-  // }
+  const testfunction = () => {  //linked to test button
+    console.log("UtilityCount: " + utilityCount)
+    console.log("SpeedCount: " + speedCount)
+    console.log("UtilityFlag: " + utilityFlag)
+    console.log("SpeedFlag: " + speedFlag)
+    console.log("High: " + high)
+  }
 
 
 
   return (
     <div className="App-header">
-        <h1>Toggle Operators to include or exclude below!</h1>
+        <h2>Toggle Operators to include or exclude below!</h2>
+        <div className = "moreoptions">
+          <button id="AllOptionsButton" value = "OFF" style={ToggleDefault} onClick={AllOptionsToggle}>ENSURE ALL TOGGLED TIERS</button>
+          <button id="RecruitRoulette" value = "OFF" style={ToggleDefault} onClick={RecruitRoulette}>RECRUIT ROULETTE</button>
+          <button id="TRUERecruitRoulette" value = "OFF" style={ToggleDefault} onClick={TrueRecruitRoulette}>TRUE RECRUIT ROULETTE</button>
+        </div>
+        <h3>Utility</h3>
         <div className = "extrautility">
           <button id='SoftBreachersButton' value = "OFF" style = {ToggleDefault} onClick={SoftBreachToggle}>SOFT BREACHERS</button>
           <button id="HardBreachersButton" value = "OFF" style = {ToggleDefault} onClick={HardBreachToggle}>HARD BREACHERS</button>
@@ -322,6 +398,7 @@ function R6SRando() {
           <button id="CameraButton" value = "OFF" style = {ToggleDefault} onClick={CameraToggle}>EXTRA CAMERAS</button>
           <button id="ElectricButton" value = "OFF" style = {ToggleDefault} onClick={ElectricToggle}>ELECTRIC</button>
         </div>
+        <h3>Speed</h3>
         <div className = "extraattackarmorspeed">
           <button id="AttackHeavyButton" value = "OFF" style = {ToggleDefault} onClick={AttackHeavyToggle}>ATTACK HEAVY</button>
           <button id="AttackMediumButton" value = "OFF" style = {ToggleDefault} onClick={AttackMediumToggle}>ATTACK MEDIUM</button>
@@ -336,11 +413,11 @@ function R6SRando() {
           <h1> </h1>
         </div>
         <div className = "doextra">
-          <button id="ExtraAttack"style = {AttackStyle} onClick={DoExtraAttack}>ATTACK with extra settings</button>
-          <button style = {DefendStyle} onClick={DoExtraDefend}>DEFEND with extra settings</button>
+          <button id="ExtraAttack"style = {AttackStyle} onClick={DoExtraAttack}>ATTACK</button>
+          <button style = {DefendStyle} onClick={DoExtraDefend}>DEFEND</button>
         </div>
-        <h2>You are using: {Op}</h2>
-        {/*<button onClick={testfunction}>TEST</button> {/*take out when done*/}
+        <h3>You are using: {Op}</h3>
+        <button onClick={testfunction}>TEST</button> {/*take out when done*/}
     </div>
   );
 }
