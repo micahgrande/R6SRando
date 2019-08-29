@@ -34,6 +34,8 @@ let utilityCount = 0
 let utilityFlag = 0
 let speedCount = 0
 let speedFlag = 0
+let recruit = 0
+let extremeRecruit = 0
 
   const AttackStyle = {
     fontSize: "20px",
@@ -76,18 +78,44 @@ function R6SRando() {
     const button = document.getElementById("AllOptionsButton")
           if (button.value === "OFF"){
             exclude = 1
-            utilityToggle(button)
+            specialToggle(button)
           }
           else {
             exclude = 0
-            utilityToggle(button)
+            specialToggle(button)
           }
   }
   const RecruitRoulette = () => {
     const button = document.getElementById("RecruitRoulette")
+    if (button.value === "OFF"){
+      specialToggle(button)
+      recruit = 1
+      const otherButton = document.getElementById("ExtremeRecruitRoulette") //for mutual exclusion
+      if (otherButton.value === "ON") {
+        specialToggle(otherButton)
+        extremeRecruit = 0
+      }
+    }
+    else {
+      specialToggle(button)
+      recruit = 0
+    }
   }
-  const TrueRecruitRoulette = () => {
-    const button = document.getElementById("TRUERecruitRoulette")
+  const ExtremeRecruitRoulette = () => {
+    const button = document.getElementById("ExtremeRecruitRoulette")
+    if (button.value === "OFF") {
+      specialToggle(button)
+      extremeRecruit = 1
+      const otherButton = document.getElementById("RecruitRoulette")  //for mutual exclusion
+      if (otherButton.value === "ON") {
+        specialToggle(otherButton)
+        recruit = 0
+      }
+    }
+    else {
+      specialToggle(button)
+      extremeRecruit = 1
+    }
   }
 
   //extra settings connected to similarly named buttons
@@ -291,18 +319,27 @@ function R6SRando() {
         }
 
   const DoExtraAttack = () => { //called when ATTACK with extra settings button is pressed
+    high = 0
+    if (exclude === 1){ //for "Ensure All Toggled Tiers"
+      high--
+      if (utilityFlag === 1)
+        high++
+      if (speedFlag === 1)
+        high++
+    }
     for (var i = 0; i < AttackNumber.length; i++){
       console.log(AttackNumber[i])
-      high = 0
-      if (exclude === 1){
-        high--
-        if (utilityFlag === 1)
-          high++
-        if (speedFlag === 1)
-          high++
-      }
       if(AttackNumber[i] > high) {
         AttackQueue.push(Attackers[i])
+      }
+    }
+    if (recruit === 1 && AttackQueue.length !== 0){ //for "Recruit Roulette"
+      let divide = Math.floor(AttackQueue.length / 6)
+      if (divide === 0) { //ensure at least 1 recruit
+        divide = 1
+      }
+      for (var j = 0; j < divide; j++){
+        AttackQueue.push("RECRUIT")
       }
     }
     setOp(AttackQueue[Math.floor(Math.random() * AttackQueue.length)])
@@ -313,18 +350,26 @@ function R6SRando() {
     AttackQueue = []
   }
   const DoExtraDefend = () => { //called when DEFEND with extra settings button is pressed
+    high = 0
+    if (exclude === 1){ //for "Ensure All Toggled Tiers"
+      high--
+      if (utilityFlag === 1)
+        high++
+      if (speedFlag === 1)
+        high++
+    }
     for (var i = 0; i < DefendNumber.length; i++){
       console.log(DefendNumber[i])
-      high = 0
-      if (exclude === 1){
-        high--
-        if (utilityFlag === 1)
-          high++
-        if (speedFlag === 1)
-          high++
-      }
       if(DefendNumber[i] > high) {
         DefendQueue.push(Defenders[i])
+      }
+    }
+    if (recruit === 1 && DefendQueue.length !== 0){ //for "Recruit Roulette"
+      let divide = Math.floor(DefendQueue.length / 6)
+      if (divide === 0) //ensure at least 1 recruit
+       divide = 1
+      for (var j = 0; j < divide; j++){
+        DefendQueue.push("RECRUIT")
       }
     }
     setOp(DefendQueue[Math.floor(Math.random() * DefendQueue.length)])
@@ -358,26 +403,33 @@ function R6SRando() {
       button.value= "ON"
       button.style.backgroundColor = "#A2C5FE"
       button.style.color = "#e7e7e7"
-      utilityCount++
     }
     else {
       button.value = "OFF"
       button.style.backgroundColor = "#727A87"
       button.style.color = "#9DA9B1"
-      utilityCount--
     }
     if (utilityCount === 0)
       utilityFlag = 0
     else
       utilityFlag = 1
   }
+  const specialToggle = (button) => {
+    if (button.value === "OFF"){
+      button.value= "ON"
+      button.style.backgroundColor = "#A2C5FE"
+      button.style.color = "#e7e7e7"
+    }
+    else {
+      button.value = "OFF"
+      button.style.backgroundColor = "#727A87"
+      button.style.color = "#9DA9B1"
+    }
+  }
 
-  const testfunction = () => {  //linked to test button
-    console.log("UtilityCount: " + utilityCount)
-    console.log("SpeedCount: " + speedCount)
-    console.log("UtilityFlag: " + utilityFlag)
-    console.log("SpeedFlag: " + speedFlag)
-    console.log("High: " + high)
+  const testfunction = (button) => {  //linked to test button
+    console.log("RECRUIT: " + recruit)
+    console.log("EXTREME: " + extremeRecruit)
   }
 
 
@@ -385,10 +437,10 @@ function R6SRando() {
   return (
     <div className="App-header">
         <h2>Toggle Operators to include or exclude below!</h2>
-        <div className = "moreoptions">
+        <div className = "special">
           <button id="AllOptionsButton" value = "OFF" style={ToggleDefault} onClick={AllOptionsToggle}>ENSURE ALL TOGGLED TIERS</button>
           <button id="RecruitRoulette" value = "OFF" style={ToggleDefault} onClick={RecruitRoulette}>RECRUIT ROULETTE</button>
-          <button id="TRUERecruitRoulette" value = "OFF" style={ToggleDefault} onClick={TrueRecruitRoulette}>TRUE RECRUIT ROULETTE</button>
+          <button id="ExtremeRecruitRoulette" value = "OFF" style={ToggleDefault} onClick={ExtremeRecruitRoulette}><strike>EXTREME RECRUIT ROULETTE</strike></button>
         </div>
         <h3>Utility</h3>
         <div className = "extrautility">
