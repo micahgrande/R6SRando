@@ -319,15 +319,15 @@ function R6SRando() {
         }
 
   const DoExtraAttack = () => { //called when ATTACK with extra settings button is pressed
-    high = 0
-    if (exclude === 1){ //for "Ensure All Toggled Tiers"
-      high--
-      if (utilityFlag === 1)
-        high++
-      if (speedFlag === 1)
-        high++
-    }
     for (var i = 0; i < AttackNumber.length; i++){
+      high = 0
+      if (exclude === 1){ //for "Ensure All Toggled Tiers"
+        high--
+        if (utilityFlag === 1)
+          high++
+        if (speedFlag === 1)
+          high++
+      }
       console.log(AttackNumber[i])
       if(AttackNumber[i] > high) {
         AttackQueue.push(Attackers[i])
@@ -403,11 +403,13 @@ function R6SRando() {
       button.value= "ON"
       button.style.backgroundColor = "#A2C5FE"
       button.style.color = "#e7e7e7"
+      utilityCount++
     }
     else {
       button.value = "OFF"
       button.style.backgroundColor = "#727A87"
       button.style.color = "#9DA9B1"
+      utilityCount--
     }
     if (utilityCount === 0)
       utilityFlag = 0
@@ -428,8 +430,9 @@ function R6SRando() {
   }
 
   const testfunction = (button) => {  //linked to test button
-    console.log("RECRUIT: " + recruit)
-    console.log("EXTREME: " + extremeRecruit)
+    console.log("high: " + high)
+    console.log("utilityflag: " + utilityFlag)
+    console.log("speedflag: " + speedFlag)
   }
 
 
