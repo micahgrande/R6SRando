@@ -342,6 +342,12 @@ function R6SRando() {
         AttackQueue.push("RECRUIT")
       }
     }
+    if (extremeRecruit === 1 && AttackQueue.length !== 0) { //for "EXTREME Recruit Roulette"
+    let multi = (AttackQueue.length * 5)
+    for (var k = 0; k < multi; k++) {
+      AttackQueue.push("RECRUIT")
+    }
+  }
     setOp(AttackQueue[Math.floor(Math.random() * AttackQueue.length)])
     if(AttackQueue.length === 0){
       setOp("Fix ya settings ya dingus")
