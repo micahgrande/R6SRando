@@ -372,6 +372,12 @@ function R6SRando() {
         DefendQueue.push("RECRUIT")
       }
     }
+    if (extremeRecruit === 1 && DefendQueue.length !== 0) { //for "EXTREME Recruit Roulette"
+      let multi = (DefendQueue.length * 5)
+      for (var k = 0; k < multi; k++) {
+        DefendQueue.push("RECRUIT")
+      }
+    }
     setOp(DefendQueue[Math.floor(Math.random() * DefendQueue.length)])
     if(DefendQueue.length === 0){
       setOp("Fix ya settings ya dingus")
@@ -430,9 +436,7 @@ function R6SRando() {
   }
 
   const testfunction = (button) => {  //linked to test button
-    console.log("high: " + high)
-    console.log("utilityflag: " + utilityFlag)
-    console.log("speedflag: " + speedFlag)
+    console.log("extremeRecruit: " + extremeRecruit)
   }
 
 
@@ -443,7 +447,7 @@ function R6SRando() {
         <div className = "special">
           <button id="AllOptionsButton" value = "OFF" style={ToggleDefault} onClick={AllOptionsToggle}>ENSURE ALL TOGGLED TIERS</button>
           <button id="RecruitRoulette" value = "OFF" style={ToggleDefault} onClick={RecruitRoulette}>RECRUIT ROULETTE</button>
-          <button id="ExtremeRecruitRoulette" value = "OFF" style={ToggleDefault} onClick={ExtremeRecruitRoulette}><strike>EXTREME RECRUIT ROULETTE</strike></button>
+          <button id="ExtremeRecruitRoulette" value = "OFF" style={ToggleDefault} onClick={ExtremeRecruitRoulette}>EXTREME RECRUIT ROULETTE</button>
         </div>
         <h3>Utility</h3>
         <div className = "extrautility">
