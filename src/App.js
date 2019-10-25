@@ -38,10 +38,11 @@ let recruit = 0
 let extremeRecruit = 0
 
 function R6SRando() {
-  
-  let [Op, setOp] = useState("? ? ?") //variable shown as the name of who you're playing
+  //variable shown as the name of who you're playing
+  let [Op, setOp] = useState("? ? ?") 
 
-  const AllOptionsToggle = () => { //Toggles flag linked with "Ensure All Toggled Tiers" button
+  //Toggles flag linked with "Ensure All Toggled Tiers" button
+  const AllOptionsToggle = () => { 
     const button = document.getElementById("AllOptionsButton")
           if (button.value === "OFF"){
             exclude = 1
@@ -52,12 +53,15 @@ function R6SRando() {
             specialToggle(button)
           }
   }
-  const RecruitRoulette = () => { //Toggles flag linked with "Recruit Roulette" button; mutually exclusive with "Extreme Recruit Roulette"
+  /*Toggles flag linked with "Recruit Roulette" button; 
+  mutually exclusive with "Extreme Recruit Roulette"*/
+  const RecruitRoulette = () => { 
     const button = document.getElementById("RecruitRoulette")
     if (button.value === "OFF"){
       specialToggle(button)
       recruit = 1
-      const otherButton = document.getElementById("ExtremeRecruitRoulette") //for mutual exclusion
+      //for mutual exclusion
+      const otherButton = document.getElementById("ExtremeRecruitRoulette") 
       if (otherButton.value === "ON") {
         specialToggle(otherButton)
         extremeRecruit = 0
@@ -68,12 +72,15 @@ function R6SRando() {
       recruit = 0
     }
   }
-  const ExtremeRecruitRoulette = () => { //Toggles flag linked with "Extreme Recruit Roulette" button; mutually exclusive with "Recruit Roulette"
-    const button = document.getElementById("ExtremeRecruitRoulette")
+  /*Toggles flag linked with "Extreme Recruit Roulette" button; 
+  mutually exclusive with "Recruit Roulette"*/
+  const button = document.getElementById("ExtremeRecruitRoulette")
+  const ExtremeRecruitRoulette = () => { 
     if (button.value === "OFF") {
       specialToggle(button)
       extremeRecruit = 1
-      const otherButton = document.getElementById("RecruitRoulette")  //for mutual exclusion
+      //for mutual exclusion
+      const otherButton = document.getElementById("RecruitRoulette")  
       if (otherButton.value === "ON") {
         specialToggle(otherButton)
         recruit = 0
@@ -104,7 +111,8 @@ function R6SRando() {
           }
         }
 
-        const HardBreachToggle = () => {  //Attack
+        //Attack
+        const HardBreachToggle = () => {  
           const button = document.getElementById("HardBreachersButton")
           if (button.value === "OFF"){
             HardBreach.forEach(function(element){
@@ -122,7 +130,8 @@ function R6SRando() {
           }
         }
 
-        const ShieldToggle = () => {  //Attack and Defense
+        //Attack and Defense
+        const ShieldToggle = () => {  
           const button = document.getElementById("ShieldButton")
           if (button.value === "OFF"){
             ShieldAttack.forEach(function(element){
@@ -147,7 +156,8 @@ function R6SRando() {
             utilityToggle(button)
           }
         }
-        const CameraToggle = () => {  //Defense
+        //Defense
+        const CameraToggle = () => {  
           const button = document.getElementById("CameraButton")
           if (button.value === "OFF"){
             Camera.forEach(function(element){
@@ -164,7 +174,8 @@ function R6SRando() {
             utilityToggle(button)
           }
         }
-        const ElectricToggle = () => {  //Defense
+        //Defense
+        const ElectricToggle = () => {  
           const button = document.getElementById("ElectricButton")
           if (button.value === "OFF"){
             Electric.forEach(function(element){
@@ -285,7 +296,8 @@ function R6SRando() {
           }
         }
 
-  const DoExtraAttack = () => { //called when ATTACK with extra settings button is pressed
+  //called when ATTACK with extra settings button is pressed
+  const DoExtraAttack = () => { 
     for (var i = 0; i < AttackNumber.length; i++){
       high = 0
       if (exclude === 1){ //for "Ensure All Toggled Tiers"
@@ -322,7 +334,8 @@ function R6SRando() {
     console.log(AttackQueue)
     AttackQueue = []
   }
-  const DoExtraDefend = () => { //called when DEFEND with extra settings button is pressed
+  //called when DEFEND with extra settings button is pressed
+  const DoExtraDefend = () => { 
     high = 0
     if (exclude === 1){ //for "Ensure All Toggled Tiers"
       high--
