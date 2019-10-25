@@ -3,12 +3,12 @@ import './App.css';
 
 //                 0          1           2       3          4        5           6        7      8         9    10       11
 const Attackers = ["Sledge", "Thatcher", "Ash", "Thermite", "Twitch", "Montagne", "Glaz", "Fuze", "Blitz", "IQ", "Buck", "Blackbeard",
-//12        13        14        15      16      17          18      19        20          21       22          23
-"Capitão", "Hibana", "Jackal", "Ying", "Zofia", "Dokkaebi", "Lion", "Finka", "Maverick", "Nomad", "Gridlock", "Nøkk"]
+//12        13        14        15      16      17          18      19        20          21       22          23     24
+"Capitão", "Hibana", "Jackal", "Ying", "Zofia", "Dokkaebi", "Lion", "Finka", "Maverick", "Nomad", "Gridlock", "Nøkk", "Amaru"]
 //                  0       1       2         3         4      5       6         7           8        9         10      11
 const Defenders = ["Smoke", "Mute", "Castle", "Pulse", "Doc", "Rook", "Kapkan", "Tachanka", "Jäger", "Bandit", "Frost", "Valkyrie",
-//12        13      14      15        16    17        18        19       20       21       22        23
-"Caveira", "Echo", "Mira", "Lesion", "Ela", "Vigil", "Maestro", "Alibi", "Clash", "Kaid", "Mozzie", "Warden"]
+//12        13      14      15        16    17        18        19       20       21       22        23       24
+"Caveira", "Echo", "Mira", "Lesion", "Ela", "Vigil", "Maestro", "Alibi", "Clash", "Kaid", "Mozzie", "Warden", "Goyo"]
 
 let AttackNumber = Array(24).fill(0)
 let DefendNumber = Array(24).fill(0)
@@ -22,10 +22,10 @@ const ShieldDefend = [20]
 const Camera = [11,13,18, 22]
 const Electric = [9, 21]
 const AttackFast = [2, 9, 12, 13, 20]
-const AttackMedium = [0, 1, 3, 4, 6, 8, 10, 11, 14, 15, 16, 17, 18, 19, 21, 23]
+const AttackMedium = [0, 1, 3, 4, 6, 8, 10, 11, 14, 15, 16, 17, 18, 19, 21, 23, 24]
 const AttackHeavy = [5, 7, 22]
 const DefendFast = [3, 8, 9, 12, 16, 17, 19]
-const DefendMedium = [0, 1, 2, 6, 10, 11, 15, 22]
+const DefendMedium = [0, 1, 2, 6, 10, 11, 15, 22, 24]
 const DefendHeavy = [4, 5, 7, 13, 14, 18, 20, 21, 23]
 
 let exclude = 0
@@ -471,7 +471,5 @@ function R6SRando() {
     
   );
 }
-
-
 
 export default R6SRando;
