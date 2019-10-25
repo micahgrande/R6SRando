@@ -18,15 +18,28 @@ let DefendQueue = []
 const SoftBreach = [0, 2, 10, 16]
 const HardBreach = [3, 13]
 const ShieldAttack = [5, 8]
-const ShieldDefend = [20]
+const ShieldDefend = [7, 20]
 const Camera = [11,13,18, 22]
 const Electric = [9, 21]
+
 const AttackFast = [2, 9, 12, 13, 20]
 const AttackMedium = [0, 1, 3, 4, 6, 8, 10, 11, 14, 15, 16, 17, 18, 19, 21, 23, 24]
 const AttackHeavy = [5, 7, 22]
 const DefendFast = [3, 8, 9, 12, 16, 17, 19]
 const DefendMedium = [0, 1, 2, 6, 10, 11, 15, 22, 24]
 const DefendHeavy = [4, 5, 7, 13, 14, 18, 20, 21, 23]
+
+const FragGrenades = [0, 6, 10, 17, 19]
+const StunGrenades = [0, 2, 3, 5, 10, 11, 12, 13, 18, 20, 21]
+const Claymore = [1, 3, 4, 9, 12, 15, 16, 18, 20, 23, 24]
+const BreachCharge = [1, 2, 4, 7, 8, 9, 11, 13, 14, 15, 16, 19, 21, 22, 23, 24]
+const SmokeGrenades = [5, 6, 7, 8, 14, 17, 22]
+
+const DeployableShield = [0, 7, 10, 11, 13, 16, 19, 23]
+const BarbedWire = [0, 3, 4, 5, 7, 8, 9, 13, 14, 16, 18, 20, 22, 23]
+const NitroCell = [1, 3, 6, 9, 11, 14, 21, 22, 24]
+const BulletproofCamera = [1, 2, 4, 8, 10, 12, 15, 17]
+const ImpactGrenades = [2, 5, 6, 12, 15, 17, 18, 19, 20, 21, 24]
 
 let exclude = 0
 let high = 0
