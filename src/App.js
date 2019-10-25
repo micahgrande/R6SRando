@@ -37,44 +37,11 @@ let speedFlag = 0
 let recruit = 0
 let extremeRecruit = 0
 
-  const AttackStyle = {
-    fontSize: "20px",
-    backgroundColor: "#E2A2FE",
-    padding: "15px",
-    color: "#e7e7e7",
-    borderRadius: "12px",
-    margin: "10px"
-  }
-  const DefendStyle = {
-    fontSize: "20px",
-    backgroundColor: "#BBAFFD",
-    padding: "15px",
-    color: "#e7e7e7",
-    borderRadius: "12px",
-    margin: "10px"
-  }
-    /*const OnStyle = {
-    fontSize: "20px",
-    backgroundColor: "#A2C5FE",
-    padding: "15px",
-    color: "#e7e7e7",
-    borderRadius: "12px",
-    margin: "10px"
-    } */
-   const ToggleDefault = {
-    fontSize: "20px",
-    backgroundColor: "#727A87",
-    padding: "15px",
-    color: "#9DA9B1",
-    borderRadius: "20px",
-    margin: "10px"
-  }
-
 function R6SRando() {
   
   let [Op, setOp] = useState("? ? ?") //variable shown as the name of who you're playing
 
-  const AllOptionsToggle = () => {
+  const AllOptionsToggle = () => { //Toggles flag linked with "Ensure All Toggled Tiers" button
     const button = document.getElementById("AllOptionsButton")
           if (button.value === "OFF"){
             exclude = 1
@@ -85,7 +52,7 @@ function R6SRando() {
             specialToggle(button)
           }
   }
-  const RecruitRoulette = () => {
+  const RecruitRoulette = () => { //Toggles flag linked with "Recruit Roulette" button; mutually exclusive with "Extreme Recruit Roulette"
     const button = document.getElementById("RecruitRoulette")
     if (button.value === "OFF"){
       specialToggle(button)
@@ -101,7 +68,7 @@ function R6SRando() {
       recruit = 0
     }
   }
-  const ExtremeRecruitRoulette = () => {
+  const ExtremeRecruitRoulette = () => { //Toggles flag linked with "Extreme Recruit Roulette" button; mutually exclusive with "Recruit Roulette"
     const button = document.getElementById("ExtremeRecruitRoulette")
     if (button.value === "OFF") {
       specialToggle(button)
@@ -119,7 +86,7 @@ function R6SRando() {
   }
 
   //extra settings connected to similarly named buttons
-        const SoftBreachToggle = () => {
+        const SoftBreachToggle = () => {  //Attack
           const button = document.getElementById("SoftBreachersButton")
           if (button.value === "OFF"){
             SoftBreach.forEach(function(element){
@@ -137,7 +104,7 @@ function R6SRando() {
           }
         }
 
-        const HardBreachToggle = () => {
+        const HardBreachToggle = () => {  //Attack
           const button = document.getElementById("HardBreachersButton")
           if (button.value === "OFF"){
             HardBreach.forEach(function(element){
@@ -155,7 +122,7 @@ function R6SRando() {
           }
         }
 
-        const ShieldToggle = () => {
+        const ShieldToggle = () => {  //Attack and Defense
           const button = document.getElementById("ShieldButton")
           if (button.value === "OFF"){
             ShieldAttack.forEach(function(element){
@@ -180,7 +147,7 @@ function R6SRando() {
             utilityToggle(button)
           }
         }
-        const CameraToggle = () => {
+        const CameraToggle = () => {  //Defense
           const button = document.getElementById("CameraButton")
           if (button.value === "OFF"){
             Camera.forEach(function(element){
@@ -197,7 +164,7 @@ function R6SRando() {
             utilityToggle(button)
           }
         }
-        const ElectricToggle = () => {
+        const ElectricToggle = () => {  //Defense
           const button = document.getElementById("ElectricButton")
           if (button.value === "OFF"){
             Electric.forEach(function(element){
@@ -441,49 +408,54 @@ function R6SRando() {
     }
   }
 
-  const testfunction = (button) => {  //linked to test button
-    console.log("extremeRecruit: " + extremeRecruit)
-  }
+  // const testfunction = (button) => {  //linked to test button
+  //   console.log("extremeRecruit: " + extremeRecruit)
+  // }
 
 
 
   return (
     <div className="App-header">
         <h2>Toggle Operators to include or exclude below!</h2>
-        <div className = "special">
-          <button id="AllOptionsButton" value = "OFF" style={ToggleDefault} onClick={AllOptionsToggle}>ENSURE ALL TOGGLED TIERS</button>
-          <button id="RecruitRoulette" value = "OFF" style={ToggleDefault} onClick={RecruitRoulette}>RECRUIT ROULETTE</button>
-          <button id="ExtremeRecruitRoulette" value = "OFF" style={ToggleDefault} onClick={ExtremeRecruitRoulette}>EXTREME RECRUIT ROULETTE</button>
-        </div>
-        <h3>Utility</h3>
-        <div className = "extrautility">
-          <button id='SoftBreachersButton' value = "OFF" style = {ToggleDefault} onClick={SoftBreachToggle}>SOFT BREACHERS</button>
-          <button id="HardBreachersButton" value = "OFF" style = {ToggleDefault} onClick={HardBreachToggle}>HARD BREACHERS</button>
-          <button id="ShieldButton" value = "OFF" style = {ToggleDefault} onClick={ShieldToggle}>SHIELDS</button>
-          <button id="CameraButton" value = "OFF" style = {ToggleDefault} onClick={CameraToggle}>EXTRA CAMERAS</button>
-          <button id="ElectricButton" value = "OFF" style = {ToggleDefault} onClick={ElectricToggle}>ELECTRIC</button>
-        </div>
-        <h3>Speed</h3>
-        <div className = "extraattackarmorspeed">
-          <button id="AttackHeavyButton" value = "OFF" style = {ToggleDefault} onClick={AttackHeavyToggle}>ATTACK HEAVY</button>
-          <button id="AttackMediumButton" value = "OFF" style = {ToggleDefault} onClick={AttackMediumToggle}>ATTACK MEDIUM</button>
-          <button id="AttackFastButton" value = "OFF" style = {ToggleDefault} onClick={AttackFastToggle}>ATTACK FAST</button>
-        </div>
-        <div className = "extrdefendarmorspeed">
-          <button id="DefendHeavyButton" value = "OFF" style = {ToggleDefault} onClick={DefendHeavyToggle}>DEFEND HEAVY</button>
-          <button id="DefendMediumButton" value = "OFF" style = {ToggleDefault} onClick={DefendMediumToggle}>DEFEND MEDIUM</button>
-          <button id="DefendFastButton" value = "OFF" style = {ToggleDefault} onClick={DefendFastToggle}>DEFEND FAST</button>
+        <div className = "WrapperCenter">
+          <div className = "ToggleDefault">
+            <div className = "special">
+              <button id="AllOptionsButton" value = "OFF" onClick={AllOptionsToggle}>ENSURE ALL TOGGLED TIERS</button>
+              <button id="RecruitRoulette" value = "OFF" onClick={RecruitRoulette}>RECRUIT ROULETTE</button>
+              <button id="ExtremeRecruitRoulette" value = "OFF" onClick={ExtremeRecruitRoulette}>EXTREME RECRUIT ROULETTE</button>
+            </div>
+            <h3>Utility</h3>
+            <div className = "extrautility">
+              <button id='SoftBreachersButton' value = "OFF" onClick={SoftBreachToggle}>SOFT BREACHERS</button>
+              <button id="HardBreachersButton" value = "OFF" onClick={HardBreachToggle}>HARD BREACHERS</button>
+              <button id="ShieldButton" value = "OFF" onClick={ShieldToggle}>SHIELDS</button>
+              <button id="CameraButton" value = "OFF" onClick={CameraToggle}>EXTRA CAMERAS</button>
+              <button id="ElectricButton" value = "OFF" onClick={ElectricToggle}>ELECTRIC</button>
+            </div>
+            <h3>Speed</h3>
+            <div className = "extraattackarmorspeed">
+              <button id="AttackHeavyButton" value = "OFF" onClick={AttackHeavyToggle}>ATTACK HEAVY</button>
+              <button id="AttackMediumButton" value = "OFF" onClick={AttackMediumToggle}>ATTACK MEDIUM</button>
+              <button id="AttackFastButton" value = "OFF" onClick={AttackFastToggle}>ATTACK FAST</button>
+            </div>
+            <div className = "extradefendarmorspeed">
+              <button id="DefendHeavyButton" value = "OFF" onClick={DefendHeavyToggle}>DEFEND HEAVY</button>
+              <button id="DefendMediumButton" value = "OFF" onClick={DefendMediumToggle}>DEFEND MEDIUM</button>
+              <button id="DefendFastButton" value = "OFF" onClick={DefendFastToggle}>DEFEND FAST</button>
+            </div>
+          </div>
         </div>
         <div>
           <h1> </h1>
         </div>
-        <div className = "doextra">
-          <button id="ExtraAttack"style = {AttackStyle} onClick={DoExtraAttack}>ATTACK</button>
-          <button style = {DefendStyle} onClick={DoExtraDefend}>DEFEND</button>
+        <div>
+          <button id = "ExtraAttack" onClick={DoExtraAttack}>ATTACK</button>
+          <button id = "ExtraDefend" onClick={DoExtraDefend}>DEFEND</button>
         </div>
         <h3>You are using: {Op}</h3>
-        <button onClick={testfunction}>TEST</button> {/*take out when done*/}
+        {/*<button onClick={testfunction}>TEST</button> {/*take out when done*/}
     </div>
+    
   );
 }
 

@@ -19,6 +19,34 @@
   color: white;
 }
 
+#ExtraAttack  {
+  font-size: 20px;
+  background-color: #e2a2fe;
+  padding: 15px;
+  color: #e7e7e7;
+  border-radius: 12px;
+  margin: 10px;
+}
+#ExtraDefend  {
+  font-size: 20px;
+  background-color: #BBAFFD;
+  padding: 15px;
+  color: #e7e7e7;
+  border-radius:12px;
+  margin: 10px;
+}
+ .ToggleDefault button {
+  font-size: 20px;
+  background-color: #727A87;
+  padding: 15px;
+  color: #9DA9B1;
+  border-radius: 20px;
+  margin: 10px;
+}
+.WrapperCenter {
+  text-align: center
+}
+
 .App-link {
   color: #61dafb;
 }
