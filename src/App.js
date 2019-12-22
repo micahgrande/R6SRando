@@ -19,7 +19,7 @@ let DefendQueue = []
 const SoftBreach = [0, 2, 10, 16]
 const HardBreach = [3, 13]
 const ShieldAttack = [5, 8]
-const ShieldDefend = [7, 20]
+const ShieldDefend = [7, 20, 24]
 const Camera = [11,13,18, 22]
 const Electric = [9, 21]
 
