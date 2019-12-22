@@ -446,7 +446,7 @@ function R6SRando() {
 
   return (
     <div className="App-header">
-        <h2>Toggle Operators to include or exclude below!</h2>
+        <h2>Toggle Options to include or exclude below!</h2>
         <div className = "WrapperCenter">
           <div className = "ToggleDefault">
             <div className = "special">
