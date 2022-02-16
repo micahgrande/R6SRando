@@ -8,7 +8,7 @@ const Attackers = ["Sledge", "Thatcher", "Ash", "Thermite", "Twitch", "Montagne"
 //                  0       1       2         3         4      5       6         7           8        9         10      11
 const Defenders = ["Smoke", "Mute", "Castle", "Pulse", "Doc", "Rook", "Kapkan", "Tachanka", "Jäger", "Bandit", "Frost", "Valkyrie",
 //12        13      14      15        16    17        18        19       20       21       22        23       24
-"Caveira", "Echo", "Mira", "Lesion", "Ela", "Vigil", "Maestro", "Alibi", "Clash", "Kaid", "Mozzie", "Warden", "Goyo"]
+"Caveira", "Echo", "Mira", "Lesion", "Ela", "Vigil", "Maestro", "Alibi", "Clash", "Kaid", "Mozzie", "Warden", "Goy"]
 
 let AttackNumber = Array(24).fill(0)
 let DefendNumber = Array(24).fill(0)
